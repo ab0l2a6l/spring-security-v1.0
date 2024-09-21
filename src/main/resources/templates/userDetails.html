@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <p>
+            <span>id: </span> <span th:text="${user.getId()}"></span>
+        </p>
+        <p>
+            <span>username: </span> <span th:text="${user.getUsername()}"></span>
+        </p>
+        <p>
+            <span>password: </span> <span th:text="${user.getPassword()}"></span>
+        </p>
+        <p>
+            <span>roles: </span> <span th:text="${user.getRoles()}"></span>
+        </p>
+        <p>
+            <span>authorities: </span> <span th:text="${user.getAuthorities()}"></span>
+        </p>
+    </div>
+</body>
+</html>

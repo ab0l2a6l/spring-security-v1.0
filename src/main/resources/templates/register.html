@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+</head>
+<body>
+<h1>Register</h1>
+    <p th:if="${#fields.hasErrors('userSaveRequest.username')}">username is not valid</p>
+    <p th:if="${#fields.hasErrors('userSaveRequest.password')}">password is not valid</p>
+<form method="post" th:action="@{/register}">
+    <div>
+        <label for="username">username: </label>
+        <input type="text" name="username" id="username">
+    </div>
+    <div>
+        <label for="password">password: </label>
+        <input type="text" name="password" id="password">
+    </div>
+    <input type="submit" value="sign in">
+</form>
+</body>
+</html>

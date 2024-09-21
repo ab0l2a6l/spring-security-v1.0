@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/abolfazl
+    username: root
+    password: Am@0311865186
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 480386291643-nfibqh0ed60u1r6bi0ki8qqakr5qpsg2.apps.googleusercontent.com
+            client-secret: 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
+
+jwt:
+  key: njfasdjkfhuworhvgbasdajfkhljsadhjkfdfhagkshjnjfasdjkfhuworhvgbasdajfkhljsadhjkfdfhagkshj
+  expireDate: 6400000
