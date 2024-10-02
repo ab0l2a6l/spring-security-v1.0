@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 import io.jsonwebtoken.security.Keys;
+import org.example.springsecurity.model.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class JwsService {
+public class JwtService {
+
     @Value("${jwt.key}")
     private String key;
 

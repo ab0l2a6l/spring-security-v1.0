@@ -10,7 +10,6 @@ import org.example.springsecurity.model.repository.TokenRepository;
 import org.example.springsecurity.model.service.UserService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.token.TokenService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Component;
@@ -24,7 +23,7 @@ import java.util.stream.Collectors;
 public class JwtAuthFilter extends OncePerRequestFilter {
 
     private final TokenRepository tokenRepository;
-    private final JwsService jwsService;
+    private final JwtService jwtService;
     private final UserService userService;
 
     @Override
@@ -39,7 +38,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         }
         String jwt = authHeader.replace("Bearer ", "");
         System.out.println(jwt);
-        String username = jwsService.getUsernameFromToken(jwt);
+        String username = jwtService.getUsernameFromToken(jwt);
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             Token finedToken = tokenRepository.findByToken(jwt)
                     .stream().filter(token -> !token.isExpired() &&
